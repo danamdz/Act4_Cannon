@@ -52,13 +52,12 @@ def move():
     for target in dupe:
         if abs(target - ball) > 13:
             targets.append(target)
+        # Reposicionar el balón si sale de la ventana
+        else:
+            if not inside(target):
+                target.x = 200
 
     draw()
-
-    for target in targets:
-        if not inside(target):
-            return
-
     ontimer(move, 50)
 
 setup(420, 420, 370, 0)
